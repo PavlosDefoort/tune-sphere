@@ -1,4 +1,5 @@
 import Header from "@/components/landing/Header";
+import Footer from "@/components/landing/Footer";
 import { SpotifyTrack, SpotifyUser } from "@/interfaces/spotifyTypes";
 import { getTopTracks } from "@/services/calls";
 import { Josefin_Sans } from "next/font/google";
@@ -111,6 +112,7 @@ export default function Home() {
           );
         })}
       </div>
+      <Footer />
     </main>
   );
 }
