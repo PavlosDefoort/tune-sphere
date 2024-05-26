@@ -1,3 +1,4 @@
+import Header from "@/components/landing/Header";
 import { SpotifyTrack, SpotifyUser } from "@/interfaces/spotifyTypes";
 import { getTopTracks } from "@/services/calls";
 import { Josefin_Sans } from "next/font/google";
@@ -40,9 +41,8 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`flex min-h-screen w-screen flex-col items-center justify-between p-24 ${josephine.className}`}
-    >
+    <main className={`min-h-screen w-screen ${josephine.className}`}>
+      <Header />
       <div>
         <h1>Spotify Login</h1>
         {!userData ? (

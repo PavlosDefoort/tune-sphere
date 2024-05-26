@@ -19,7 +19,7 @@ export async function getTopTracks(token: string): Promise<SpotifyTrack[]> {
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   return (
     await fetchWebApi(
-      "v1/me/top/tracks?time_range=long_term&limit=50",
+      "v1/me/top/tracks?time_range=short_term&limit=10",
       "GET",
       null,
       token

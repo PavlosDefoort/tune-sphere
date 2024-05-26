@@ -1,7 +1,7 @@
-import { NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 import queryString from "query-string";
 
-const loginHandler = (res: NextApiResponse) => {
+const loginHandler = (req: NextApiRequest, res: NextApiResponse) => {
   const queryParams = queryString.stringify({
     client_id: process.env.CLIENT_ID,
     redirect_uri: process.env.REDIRECT_URI,
