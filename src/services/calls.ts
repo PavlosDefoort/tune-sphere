@@ -1,4 +1,4 @@
-import { SpotifyTrack } from "@/interfaces/spotifyTypes";
+import { SpotifyTrack } from "@/interfaces/SpotifyTypes";
 
 export async function fetchWebApi(
   endpoint: string,

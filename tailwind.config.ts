@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        backgroundColor: {
+          light: "#f3f4f6",
+          dark: "#121212",
+        },
+        spotifyGreen: {
+          DEFAULT: "#1ED760",
+        },
+        spotifyHover: {
+          DEFAULT: "#1AA74C",
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
