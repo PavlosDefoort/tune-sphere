@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TryOut from "./TryOut";
 
 const Hero: React.FC = () => {
@@ -14,9 +15,11 @@ const Hero: React.FC = () => {
             artists any time you want.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex text-white rounded-lg bg-spotifyGreen border-0 py-2 px-6 focus:outline-none hover:bg-green-600 text-lg">
-              Go to Full Wrapped
-            </button>
+            <Link href="/wrapped">
+              <button className="inline-flex text-white rounded-lg bg-spotifyGreen border-0 py-2 px-6 focus:outline-none hover:bg-green-600 text-lg">
+                Go to Full Wrapped
+              </button>
+            </Link>
           </div>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 h-96">

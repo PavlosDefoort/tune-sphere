@@ -1,9 +1,10 @@
+import Header from "@/components/landing/Header";
 import React from "react";
 
 const Wrapped: React.FC = () => {
   return (
     <div>
-      <h1>Wrapped</h1>
+      <Header />
     </div>
   );
 };

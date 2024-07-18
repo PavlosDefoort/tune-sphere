@@ -1,9 +1,10 @@
 import { useUser } from "@/hooks/useUser";
 import { Avatar } from "@mui/material";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const Header: React.FC = () => {
-  const { user } = useUser();
+  const { data } = useSession();
   return (
     <header className=" navbar-blur-dark sticky top-0  dark:text-white text-white ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -37,8 +38,8 @@ const Header: React.FC = () => {
             Sphere
           </a> */}
         </nav>
-        {!user && <Avatar />}
-        {user && <Avatar src={user.images[0].url} />}
+        {!data?.user && <Avatar />}
+        {data?.user && <Avatar src={data.user.image ?? ""} />}
       </div>
     </header>
   );
