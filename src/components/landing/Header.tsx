@@ -5,10 +5,10 @@ import Link from "next/link";
 const Header: React.FC = () => {
   const { user } = useUser();
   return (
-    <header className=" navbar-blur-dark sticky top-0  dark:text-white text-black ">
+    <header className=" navbar-blur-dark sticky top-0  dark:text-white text-white ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link
-          className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 cursor-pointer"
+          className="flex title-font font-medium items-center text-white hover:text-gray-200 mb-4 md:mb-0 cursor-pointer"
           href={"./"}
         >
           <svg
@@ -24,15 +24,18 @@ const Header: React.FC = () => {
           </span>
         </Link>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center ">
-          <a className="mr-5 hover:text-gray-900 dark:hover:text-slate-300 cursor-pointer">
+          <Link
+            href={"./wrapped"}
+            className="mr-5 hover:text-gray-200 text-white  cursor-pointer"
+          >
             Wrapped
-          </a>
-          <a className="mr-5 hover:text-gray-900  dark:hover:text-slate-300 cursor-pointer">
+          </Link>
+          {/* <a className="mr-5 text-white hover:text-gray-200 cursor-pointer">
             Analysis
           </a>
-          <a className="mr-5 hover:text-gray-900  dark:hover:text-slate-300 cursor-pointer">
+          <a className="mr-5 text-white hover:text-gray-200  cursor-pointer">
             Sphere
-          </a>
+          </a> */}
         </nav>
         {!user && <Avatar />}
         {user && <Avatar src={user.images[0].url} />}

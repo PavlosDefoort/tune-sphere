@@ -1,20 +1,19 @@
 import "@/styles/globals.css";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import { Josefin_Sans } from "next/font/google";
-import { UserContext } from "@/context/UserContext";
-import { useState } from "react";
-import { SpotifyUser } from "@/interfaces/SpotifyTypes";
 
 const josephine = Josefin_Sans({ subsets: ["latin"], weight: ["400"] });
 
-export default function App({ Component, pageProps }: AppProps) {
-  const [user, setUser] = useState<SpotifyUser | null>(null);
-
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
     <main className={`${josephine.className}`}>
-      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+      <SessionProvider session={session}>
         <Component {...pageProps} />
-      </UserContext.Provider>
+      </SessionProvider>
     </main>
   );
 }

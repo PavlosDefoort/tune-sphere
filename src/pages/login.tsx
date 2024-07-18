@@ -1,20 +1,47 @@
+import { Provider } from "next-auth/providers/index";
+import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import { Lobster } from "next/font/google";
+import { SessionUser } from "./api/auth/[...nextauth]";
 
 const lobster = Lobster({ weight: "400", subsets: ["latin-ext"] });
 
-export default function Login() {
+export default function Login({
+  providers,
+}: {
+  providers: { [provider: string]: Provider };
+}) {
+  const { data: session } = useSession();
+
   return (
-    <main className="flex flex-col h-screen">
-      <div className="w-full h-10 bg-blue-300">
-        <h1>TuneSphere</h1>
-      </div>
-      <div className="flex flex-row h-full bg-green-300">
-        <div className=" flex flex-col flex-grow items-center justify-center bg-slate-300">
-          <button className=" w-[40] h-[32] transition ease-in-out bg-green-500 hover:bg-green-600 rounded-full px-5 py-2">
-            Login to Spotify
+    <main className="">
+      <h1>Login</h1>
+      {session && (
+        <div>
+          <h2>Signed in as {session.user?.email}</h2>
+          <h3>Token: {session.user.accessToken}</h3>
+          <button onClick={() => signOut()}>Sign out</button>
+        </div>
+      )}
+      {Object.values(providers).map((provider) => (
+        <div key={provider.name}>
+          <button
+            onClick={() =>
+              signIn(provider.id, {
+                callbackUrl: "/",
+              })
+            }
+          >
+            Sign in with {provider.name}
           </button>
         </div>
-      </div>
+      ))}
     </main>
   );
+}
+
+export async function getServerSideProps() {
+  const providers = await getProviders();
+  return {
+    props: { providers },
+  };
 }

@@ -54,6 +54,10 @@ const TryOut: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("tracks", tracks);
+  }, [tracks]);
+
   return (
     <div className="h-full bg-gradient-to-r from-rose-200 to-pink-200 rounded-2xl flex flex-col justify-center items-center">
       {!user && (
