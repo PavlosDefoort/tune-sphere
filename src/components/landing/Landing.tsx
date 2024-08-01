@@ -5,7 +5,7 @@ import Hero from "./Hero";
 const Landing: React.FC = () => {
   return (
     <main
-      className={`min-h-screen w-screen text-black dark:text-white select-none`}
+      className={`flex flex-col h-screen w-screen text-black dark:text-white select-none`}
     >
       <Header />
       <Hero />

@@ -12,6 +12,8 @@ export default function Login({
 }) {
   const { data: session } = useSession();
 
+  console.log("session", session);
+
   return (
     <main className="">
       <h1>Login</h1>

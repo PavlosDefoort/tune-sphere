@@ -6,7 +6,7 @@ import Link from "next/link";
 const Header: React.FC = () => {
   const { data } = useSession();
   return (
-    <header className=" navbar-blur-dark sticky top-0  dark:text-white text-white ">
+    <header className=" navbar-blur-dark sticky top-0  dark:text-white text-white z-50">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link
           className="flex title-font font-medium items-center text-white hover:text-gray-200 mb-4 md:mb-0 cursor-pointer"
