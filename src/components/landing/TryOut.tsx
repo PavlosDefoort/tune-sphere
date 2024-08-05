@@ -72,7 +72,7 @@ const TryOut: React.FC = () => {
   }, [user]);
 
   return (
-    <div className="h-full bg-rose-200 rounded-2xl flex flex-col justify-center items-center mr-3 max-w-[30rem]">
+    <div className="h-full bg-rose-200 rounded-2xl flex flex-col justify-center items-center mr-3 max-w-[60rem]">
       {!token && (
         <div className="h-full flex justify-center items-center">
           <Link href="/login">
