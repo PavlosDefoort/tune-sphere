@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import MiniWrapped from "./MiniWrapped";
 
 const TryOut: React.FC = () => {
   // const router = useRouter();
@@ -18,6 +19,8 @@ const TryOut: React.FC = () => {
   const [token, setToken] = useState<string | null>(null);
   const [tracks, setTracks] = useState<SpotifyTrack[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  console.log("session", session);
 
   useEffect(() => {
     const access_token = session?.user?.accessToken;
@@ -81,6 +84,7 @@ const TryOut: React.FC = () => {
       )}
       {token && (
         <div className="flex flex-col w-full h-full px-0">
+          <MiniWrapped tracks={tracks} token={token} />
           <div className="text-xl text-center mt-3">Your Top 10 Tracks</div>
           <div
             className="h-[65vh] flex flex-col mb-3 py-0 bg-rose-200 overflow-y-scroll items-center rounded-xl"

@@ -26,3 +26,16 @@ export async function getTopTracks(token: string): Promise<SpotifyTrack[]> {
     )
   ).items;
 }
+export async function getAudioFeatures(
+  token: string,
+  trackId: string
+): Promise<any> {
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-audio-features
+  const response = await fetchWebApi(
+    `v1/audio-features/${trackId}`,
+    "GET",
+    null,
+    token
+  );
+  return response;
+}
