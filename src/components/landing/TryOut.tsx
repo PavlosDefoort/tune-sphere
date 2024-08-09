@@ -84,7 +84,7 @@ const TryOut: React.FC = () => {
       )}
       {token && (
         <div className="flex flex-col w-full h-full px-0">
-          <MiniWrapped tracks={tracks} token={token} />
+          {/* <MiniWrapped tracks={tracks} token={token} /> */}
           <div className="text-xl text-center mt-3">Your Top 10 Tracks</div>
           <div
             className="h-[65vh] flex flex-col mb-3 py-0 bg-rose-200 overflow-y-scroll items-center rounded-xl"
