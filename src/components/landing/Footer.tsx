@@ -1,6 +1,7 @@
 import { GitHub, LinkedIn } from "@mui/icons-material";
 
 const Footer: React.FC = () => {
+  console.log(process.env.CLIENT_ID);
   return (
     <footer className="dark:text-white text-black body-font bg-backgroundColor-dark dark:bg-backgroundColor-dark">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
